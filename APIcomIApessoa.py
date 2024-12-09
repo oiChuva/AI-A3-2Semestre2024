@@ -18,13 +18,13 @@ def IA(imagem, tipo_p):
     # Load the labels
     class_names = open("labels.txt", "r").readlines()
     # Make the image a numpy array and reshape it to the models input shape.
-    image = np.asarray(image, dtype=np.float32).reshape(1, 224, 224, 3)
+    imagem = np.asarray(image, dtype=np.float32).reshape(1, 224, 224, 3)
 
     # Normalize the image array
-    image = (image / 127.5) - 1
+    imagem = (imagem / 127.5) - 1
 
     # Predicts the model
-    prediction = model.predict(image)
+    prediction = model.predict(imagem)
     index = np.argmax(prediction)
     class_name = class_names[index]
     confidence_score = prediction[0][index]
