@@ -1,0 +1,2 @@
+Sim, há pessoas na imagem.
+Não, não há pessoas na imagem.

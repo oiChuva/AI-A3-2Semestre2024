@@ -1,5 +1,5 @@
 # Use uma imagem base do Python com suporte para pip
-FROM python:3.9-slim
+FROM python:3.10.12
 
 # Define o diretório de trabalho dentro do container
 WORKDIR /app
@@ -15,9 +15,10 @@ RUN apt-get update && apt-get install -y \
 
 # Instala as dependências do Python listadas no arquivo requirements.txt
 RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir tensorflow==2.10.0 keras fastapi uvicorn opencv-python-headless numpy python-multipart
+    pip install --no-cache-dir tensorflow==2.10.0 keras fastapi uvicorn opencv-python-headless numpy==1.26.4 python-multipart
 
 # Copia os arquivos necessários para o container
+COPY api.py /app
 COPY api.py /app
 COPY keras_model.h5 /app
 COPY labels.txt /app
